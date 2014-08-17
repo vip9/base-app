@@ -1,30 +1,32 @@
 <?php
 
-/**
- * User roles Model
- * 
- * @package     base-app
- * @category    Model
- * @version     1.2
- */
-
 namespace Baseapp\Models;
 
+/**
+ * User roles Model
+ *
+ * @package     base-app
+ * @category    Model
+ * @version     2.0
+ */
 class RolesUsers extends \Phalcon\Mvc\Model
 {
 
     /**
      * Roles Users initialize
      *
-     * @version     1.2
+     * @package     base-app
+     * @version     2.0
      */
     public function initialize()
     {
-        $this->belongsTo("user_id", __NAMESPACE__."\Users", "id", array(
-            "foreignKey" => true
+        $this->belongsTo('user_id', __NAMESPACE__ . '\Users', 'id', array(
+            'alias' => 'User',
+            'foreignKey' => true
         ));
-        $this->belongsTo("role_id", __NAMESPACE__."\Roles", "id", array(
-            "foreignKey" => true
+        $this->belongsTo('role_id', __NAMESPACE__ . '\Roles', 'id', array(
+            'alias' => 'Role',
+            'foreignKey' => true
         ));
     }
 

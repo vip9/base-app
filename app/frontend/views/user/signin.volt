@@ -1,8 +1,9 @@
+{# User sign in | base-app | 2.0 #}
 <h1>{{ __('Sign in') }}</h1><hr />
 {{ flashSession.output() }}
 {{ form(NULL, 'class' : 'form-horizontal') }}
 {% set field = 'username' %}
-<div class="form-group{{ errors is defined and errors.filter(field) ? ' has-error' : (_POST[field]|isset ? ' has-success' : '') }}">
+<div class="form-group{{ errors is defined and errors.filter(field) ? ' has-error' : (_POST[field] is defined ? ' has-success' : '') }}">
     <label class="control-label col-lg-2" for={{ field }}>{{ __(field|capitalize) }}:</label>
     <div class="col-lg-10">
     {{ textField([ field, 'class' : 'form-control', 'placeholder' : __(field|capitalize) ]) }}
@@ -12,7 +13,7 @@
     </div>
 </div>
 {% set field = 'password' %}
-<div class="form-group{{ errors is defined and errors.filter(field) ? ' has-error' : (_POST[field]|isset ? ' has-success' : '') }}">
+<div class="form-group{{ errors is defined and errors.filter(field) ? ' has-error' : (_POST[field] is defined ? ' has-success' : '') }}">
     <label class="control-label col-lg-2" for={{ field }}>{{ __(field|capitalize) }}:</label>
     <div class="col-lg-10">
     {{ passwordField([ field, 'class' : 'form-control', 'placeholder' : __(field|capitalize) ]) }}
@@ -21,10 +22,11 @@
     {% endif %}
     </div>
 </div>
+{% set field = 'rememberMe' %}
 <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
         <label class="checkbox">
-            {{ checkField([ 'remember' ]) }} {{ __('Remember me') }}
+            {{ checkField(_POST[field] is defined and _POST[field] == 'on' ? [ field, 'value': 'on', 'checked': 'checked' ] : [ field, 'value': 'on' ]) }} {{ __(field|label) }}
         </label>
     </div>
 </div>

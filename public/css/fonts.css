@@ -1,28 +1,45 @@
-/* Ubuntu & Open Sans font family */
+/*!
+ * fonts.css
+ * base-app 2.0
+ * Open Sans font family
+ */
+
 @font-face {
-  font-family: 'Ubuntu';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Ubuntu'), url(../../fonts/Ubuntu.woff) format('woff');
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Open Sans Light'), local('OpenSans-Light'), url(../../fonts/OpenSans-Light.woff) format('woff');
 }
 @font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Open Sans'), local('OpenSans'), url(../../fonts/OpenSans.woff) format('woff');
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url(../../fonts/OpenSans.woff) format('woff');
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(../../fonts/OpenSans-Semibold.woff) format('woff');
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Open Sans Italic'), local('OpenSans-Italic'), url(../../fonts/OpenSans-Italic.woff) format('woff');
 }
 
 /* Responsive fonts */
-/* Extra small devices (phones, up to 480px) */
+/* Extra small devices (phones, up to 767px) */
 /* No media query since this is the default in Bootstrap */
-body { 
+body {
     font-size: 13px;
     line-height: 1.3em;
     font-family: 'Open Sans', Helvetica, Arial;
 }
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Ubuntu', Helvetica, Arial;
-    font-weight: normal;
+    font-family: 'Open Sans', Helvetica, Arial;
+    font-weight: 300;
     line-height: 1.4;
     margin: 10px 0 0;
 }
